@@ -1,7 +1,5 @@
 require "jekyll/planningwikiplugins/version"
 
-require "jekyll/planning/wiki/plugins/version"
-
 module Jekyll
     class GitAuthorTag < Liquid::Tag
         def initialize(tag_name, text, tokens)
