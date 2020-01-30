@@ -62,7 +62,7 @@ module Jekyll
         end
 
         def render(context)
-            "<a href=\"/_citedpapers/#{paper}.pdf#page=#{pageno}\">#{text}</a>"
+            "<a href=\"/_citedpapers/#{@paper}.pdf#page=#{@pageno}\">#{@text}</a>"
         end
     end
 end
