@@ -52,12 +52,15 @@ module Jekyll
     class CitePaperTag < Liquid::Tag
         def initialize(tag_name, text, tokens)
             super
-            @text = text.split(' ')[0]
-            @paper = text.split(' ')[1]
+
             if text.split(' ').length > 2
-                @pageno = text.split(' ')[2]
-            else
-                @pageno = 1
+              @text = text.split(' ')[0..-2].join("")
+              @paper = text.split(' ')[-2]
+              @pageno = text.split(' ')[-1]
+            else 
+              @text = text.split(' ')[0]
+              @paper = text.split(' ')[1]
+              @pageno = 1
             end
         end
 
