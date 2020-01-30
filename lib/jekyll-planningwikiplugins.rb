@@ -54,7 +54,7 @@ module Jekyll
             super
 
             if text.split(' ').length > 2
-              @text = text.split(' ')[0..-2].join("")
+              @text = text.split(' ')[0..-3].join(" ")
               @paper = text.split(' ')[-2]
               @pageno = text.split(' ')[-1]
             else 
