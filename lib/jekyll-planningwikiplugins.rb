@@ -56,13 +56,7 @@ module Jekyll
       end
   
       def render(context)
-          #Split by space
-          tags = @text.split(' ')
-          result = "tags: "
-          tags.each do |tag|
-              result = "#{result} <a href=\"/ref/planners/#{tag.downcase}\">#{tag}</a>"
-          end
-          result
+        "<a href=\"/ref/planners/#{@text.downcase}\">#{@text}</a>"
       end
   end
     class CitePaperTag < Liquid::Tag
