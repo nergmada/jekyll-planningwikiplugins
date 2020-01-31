@@ -44,7 +44,7 @@ module Jekyll
             tags = @text.split(' ')
             result = "tags: "
             tags.each do |tag|
-                result = "#{result} <a href=\"/ref/planners/tags/#{tag}\">#{tag}</a>"
+                result = "#{result} <a href=\"/ref/planners/tags/#{tag.downcase}\">#{tag}</a>"
             end
             result
         end
