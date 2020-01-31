@@ -49,6 +49,22 @@ module Jekyll
             result
         end
     end
+    class PlannerLinkTag < Liquid::Tag
+      def initialize(tag_name, text, tokens)
+          super
+          @text = text
+      end
+  
+      def render(context)
+          #Split by space
+          tags = @text.split(' ')
+          result = "tags: "
+          tags.each do |tag|
+              result = "#{result} <a href=\"/ref/planners/#{tag.downcase}\">#{tag}</a>"
+          end
+          result
+      end
+  end
     class CitePaperTag < Liquid::Tag
         def initialize(tag_name, text, tokens)
             super
@@ -70,6 +86,7 @@ module Jekyll
     end
 end
     
+Liquid::Template.register_tag('planner', Jekyll::PlannerLinkTag)
 Liquid::Template.register_tag('planner_tag', Jekyll::PlannerTag) 
 Liquid::Template.register_tag('git_author', Jekyll::GitAuthorTag)
 Liquid::Template.register_tag('git_author_all', Jekyll::GitAuthorAllTag)
