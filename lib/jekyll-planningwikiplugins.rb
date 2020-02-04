@@ -14,7 +14,7 @@ module Jekyll
         end
 
         def render(context)
-            `git log --pretty=format:"%an," #{lookup(context, 'page.path')} | sort | uniq`
+            `git log --pretty=format:"%an," #{lookup(context, 'page.path')} | sort | uniq | grep -v -F "adamgreen,"`
         end
     end
     class GitAuthorAllTag < Liquid::Tag
