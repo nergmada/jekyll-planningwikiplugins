@@ -30,7 +30,7 @@ module Jekyll
         end
 
         def render(context)
-            `git log --pretty=format:"%an," . | sort | uniq`
+            `git log --pretty=format:"%an," . | sort | uniq | grep -v -F "adamgreen,"`
         end
     end
     class PlannerTag < Liquid::Tag
